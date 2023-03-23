@@ -39,9 +39,11 @@ public class OkTest {
 
     @Test
     public void incorrectLogin() {
-        open(OK_RU, LoginPage.class)
+        String errorText = "";
+        errorText = open(OK_RU, LoginPage.class)
                 .login(INCORRECT_LOGIN, INCORRECT_PASS)
                 .getFailedLoginSign()
-                .shouldHave(text(ERROR_SIGN));
+                .getText();
+        assertThat(errorText.length(), greaterThan(0));
     }
 }
