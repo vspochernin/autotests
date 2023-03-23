@@ -45,5 +45,6 @@ public class OkTest {
                 .getText();
         assertThat(errorText.length(), greaterThan(0));
         assertThat(errorText, IsOnlyLettersOrSlashOrWhitespace.onlyLettersOrSlashOrWhitespace());
+        assertThat(errorText, equalTo(ERROR_SIGN));
     }
 }
