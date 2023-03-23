@@ -4,7 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -45,5 +44,6 @@ public class OkTest {
                 .getFailedLoginSign()
                 .getText();
         assertThat(errorText.length(), greaterThan(0));
+        assertThat(errorText, IsOnlyLettersOrSlashOrWhitespace.onlyLettersOrSlashOrWhitespace());
     }
 }
