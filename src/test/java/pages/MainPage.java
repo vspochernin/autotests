@@ -8,6 +8,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage {
 
+    public static final String URL = "https://ok.ru/";
+
     private static final By NAME_SIGN = By.xpath("//*[@aria-label=\"botS23AT19 botS23AT19\"]");
     private static final By LOGIN_ERROR = By.className("login_error");
 
