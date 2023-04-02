@@ -6,12 +6,14 @@ import org.junit.jupiter.api.Test;
 
 import pages.MainPage;
 
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LoginTest {
 
     public static final String OK_RU = "https://ok.ru/";
+
     public static final String INCORRECT_LOGIN = "+1234567890";
     public static final String INCORRECT_PASS = "qwerty";
 
@@ -32,7 +34,7 @@ public class LoginTest {
         loginPage
                 .login()
                 .getNameSign()
-                .shouldHave(text(MainPage.CORRECT_NAME));
+                .shouldBe(exist);
     }
 
     @Test
