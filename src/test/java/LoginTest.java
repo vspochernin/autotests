@@ -1,24 +1,22 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import pages.MainPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
-public class OkTest {
+public class LoginTest {
 
     public static final String OK_RU = "https://ok.ru/";
-    public static final String LOGIN_ENV = "LOGIN";
-    public static final String PASS_ENV = "PASS";
-    public static final String CORRECT_NAME = "Владислав Почернин";
     public static final String INCORRECT_LOGIN = "+1234567890";
     public static final String INCORRECT_PASS = "qwerty";
-    public static final String ERROR_SIGN = "Неправильно указан логин и/или пароль";
 
-    @BeforeAll
-    public static void beforeAll() {
+    @BeforeEach
+    public void beforeAll() {
         Configuration.browser = "chrome";
     }
 
@@ -29,17 +27,21 @@ public class OkTest {
 
     @Test
     public void correctLogin() {
-        open(OK_RU, LoginPage.class)
-                .login(System.getenv(LOGIN_ENV), System.getenv(PASS_ENV))
+        open(OK_RU);
+        MainPage loginPage = new MainPage();
+        loginPage
+                .login()
                 .getNameSign()
-                .shouldHave(text(CORRECT_NAME));
+                .shouldHave(text(MainPage.CORRECT_NAME));
     }
 
     @Test
     public void incorrectLogin() {
-        open(OK_RU, LoginPage.class)
+        open(OK_RU);
+        MainPage loginPage = new MainPage();
+        loginPage
                 .login(INCORRECT_LOGIN, INCORRECT_PASS)
                 .getFailedLoginSign()
-                .shouldHave(text(ERROR_SIGN));
+                .shouldHave(text(MainPage.ERROR_SIGN));
     }
 }
