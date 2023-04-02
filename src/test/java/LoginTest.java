@@ -1,10 +1,12 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pages.MainPage;
+import pages.LoginPage;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
@@ -30,17 +32,17 @@ public class LoginTest {
     @Test
     public void correctLogin() {
         open(OK_RU);
-        MainPage loginPage = new MainPage();
+        LoginPage loginPage = new LoginPage();
         loginPage
                 .login()
                 .getNameSign()
-                .shouldBe(exist);
+                .should(exist);
     }
 
     @Test
     public void incorrectLogin() {
         open(OK_RU);
-        MainPage loginPage = new MainPage();
+        LoginPage loginPage = new LoginPage();
         loginPage
                 .login(INCORRECT_LOGIN, INCORRECT_PASS)
                 .getFailedLoginSign()
