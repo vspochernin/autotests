@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -32,6 +33,7 @@ public class SearchTest {
 
     @ParameterizedTest
     @MethodSource("searchKeywordsProvider")
+    @DisplayName("Тест поиска групп.")
     public void testGroupSearch(String keyword) {
         open(MainPage.URL);
 
