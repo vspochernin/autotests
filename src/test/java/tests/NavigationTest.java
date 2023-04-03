@@ -3,6 +3,8 @@ package tests;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -63,5 +65,18 @@ public class NavigationTest {
                 () -> assertTrue(urls.get(1).contains("friends")),
                 () -> assertTrue(urls.get(2).contains("groups"))
         );
+    }
+
+    @Test
+    @DisplayName("Тест открытия окна с музыкой")
+    public void openMusicTab() {
+        open(MainPage.URL);
+        LoginPage loginPage = new LoginPage();
+        loginPage.login();
+
+        NavigationPage navigationPage = new NavigationPage();
+        navigationPage.openMusicTab();
+        SelenideElement musicTab = navigationPage.getMusicTab();
+        musicTab.should(Condition.exist);
     }
 }

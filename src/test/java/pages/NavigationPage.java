@@ -10,6 +10,8 @@ public class NavigationPage {
     private static final By PHOTOS_TAB = By.xpath("//a[contains(@href, '/photos')]");
     private static final By FRIENDS_TAB = By.xpath("//a[contains(@href, '/friends')]");
     private static final By GROUPS_TAB = By.xpath("//a[contains(@href, '/groups')]");
+    private static final By MUSIC_TAB_BUTTON = By.id("hook_Block_MusicToolbarButton");
+    private static final By MUSIC_TAB = By.id("music_layer");
     
     public SelenideElement getPhotosTab() {
         return $(PHOTOS_TAB);
@@ -21,5 +23,13 @@ public class NavigationPage {
 
     public SelenideElement getGroupsTab() {
         return $(GROUPS_TAB);
+    }
+
+    public void openMusicTab() {
+        $(MUSIC_TAB_BUTTON).click();
+    }
+
+    public SelenideElement getMusicTab() {
+        return $(MUSIC_TAB);
     }
 }
