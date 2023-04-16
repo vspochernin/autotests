@@ -10,14 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 
 import pages.BasePage;
 import pages.LoginPage;
 import pages.LeftMenuPage;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -45,24 +43,9 @@ public class NavigationTest {
 
         List<String> urls = new LinkedList<>();
 
-        leftMenuPage.getPhotosTab().click();
-        sleep(1000);
-        urls.add(WebDriverRunner.getWebDriver().getCurrentUrl());
-
-        leftMenuPage.getFriendsTab().click();
-        sleep(1000);
-        urls.add(WebDriverRunner.getWebDriver().getCurrentUrl());
-
-        leftMenuPage.getGroupsTab().click();
-        sleep(1000);
-        urls.add(WebDriverRunner.getWebDriver().getCurrentUrl());
-
-        assertAll("Нужно, чтобы было 3 ссылки и они содержали нужные части",
-                () -> assertEquals(urls.size(), 3),
-                () -> assertTrue(urls.get(0).contains("photos")),
-                () -> assertTrue(urls.get(1).contains("friends")),
-                () -> assertTrue(urls.get(2).contains("groups"))
-        );
+        leftMenuPage.goToPhotoAndCheckUrl();
+        leftMenuPage.goToFriendsAndCheckUrl();
+        leftMenuPage.goToGroupsAndCheckUrl();
     }
 
     @Test
@@ -73,7 +56,7 @@ public class NavigationTest {
         loginPage.login();
 
         LeftMenuPage leftMenuPage = new LeftMenuPage();
-        leftMenuPage.openMusicTab();
+        leftMenuPage.openMusicTabAndCheckUrl();
         leftMenuPage.checkMusicTab();
     }
 }

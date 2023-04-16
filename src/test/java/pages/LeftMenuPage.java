@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 public class LeftMenuPage {
 
@@ -14,22 +16,28 @@ public class LeftMenuPage {
     private static final By MUSIC_TAB_BUTTON = By.id("hook_Block_MusicToolbarButton");
     private static final By MUSIC_TAB = By.id("music_layer");
     
-    public SelenideElement getPhotosTab() {
-        return $(PHOTOS_TAB)
-                .shouldBe(Condition.visible.because("Не найдена кнопка фотографий"));
+    public void goToPhotoAndCheckUrl() {
+        $(PHOTOS_TAB)
+                .shouldBe(Condition.visible.because("Не найдена кнопка фотографий"))
+                .click();
+        webdriver().shouldHave(urlContaining("photos"));
     }
 
-    public SelenideElement getFriendsTab() {
-        return $(FRIENDS_TAB)
-                .shouldBe(Condition.visible.because("Не найдена кнопка друзей"));
+    public void goToFriendsAndCheckUrl() {
+        $(FRIENDS_TAB)
+                .shouldBe(Condition.visible.because("Не найдена кнопка друзей"))
+                .click();
+        webdriver().shouldHave(urlContaining("friends"));
     }
 
-    public SelenideElement getGroupsTab() {
-        return $(GROUPS_TAB)
-                .shouldBe(Condition.visible.because("Не найдена кнопка групп"));
+    public void goToGroupsAndCheckUrl() {
+        $(GROUPS_TAB)
+                .shouldBe(Condition.visible.because("Не найдена кнопка групп"))
+                .click();
+        webdriver().shouldHave(urlContaining("groups"));
     }
 
-    public void openMusicTab() {
+    public void openMusicTabAndCheckUrl() {
         $(MUSIC_TAB_BUTTON)
                 .shouldBe(Condition.visible.because("Не найдена кнопка музыки"))
                 .click();
