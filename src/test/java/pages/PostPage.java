@@ -25,7 +25,6 @@ public class PostPage {
         SelenideElement postTextarea = $(POST_TEXTAREA)
                 .shouldBe(Condition.visible.because("Не найдено поле ввода поста"));
         postTextarea.setValue(postData.getText());
-        sleep(1000);
         $(POST_BUTTON)
                 .shouldBe(Condition.visible.because("Не найдена кнопка создания поста"))
                 .click();
