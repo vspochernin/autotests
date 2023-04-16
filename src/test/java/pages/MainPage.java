@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import org.openqa.selenium.By;
@@ -16,10 +17,12 @@ public class MainPage {
     public static final String ERROR_SIGN = "Неправильно указан логин и/или пароль";
 
     public SelenideElement getNameSign() {
-        return $(NAME_SIGN);
+        return $(NAME_SIGN)
+                .shouldBe(Condition.visible.because("Не найдено поле имени"));
     }
 
     public SelenideElement getFailedLoginSign() {
-        return $(LOGIN_ERROR);
+        return $(LOGIN_ERROR)
+                .shouldBe(Condition.visible.because("Не найдена надпись о некорректной аутентификации"));
     }
 }

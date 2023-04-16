@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
@@ -14,22 +15,28 @@ public class NavigationPage {
     private static final By MUSIC_TAB = By.id("music_layer");
     
     public SelenideElement getPhotosTab() {
-        return $(PHOTOS_TAB);
+        return $(PHOTOS_TAB)
+                .shouldBe(Condition.visible.because("Не найдена кнопка фотографий"));
     }
 
     public SelenideElement getFriendsTab() {
-        return $(FRIENDS_TAB);
+        return $(FRIENDS_TAB)
+                .shouldBe(Condition.visible.because("Не найдена кнопка друзей"));
     }
 
     public SelenideElement getGroupsTab() {
-        return $(GROUPS_TAB);
+        return $(GROUPS_TAB)
+                .shouldBe(Condition.visible.because("Не найдена кнопка групп"));
     }
 
     public void openMusicTab() {
-        $(MUSIC_TAB_BUTTON).click();
+        $(MUSIC_TAB_BUTTON)
+                .shouldBe(Condition.visible.because("Не найдена кнопка музыки"))
+                .click();
     }
 
     public SelenideElement getMusicTab() {
-        return $(MUSIC_TAB);
+        return $(MUSIC_TAB)
+                .shouldBe(Condition.visible.because("Не найдена кнопка музыки"));
     }
 }
