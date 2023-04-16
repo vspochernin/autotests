@@ -35,8 +35,9 @@ public class NavigationPage {
                 .click();
     }
 
-    public SelenideElement getMusicTab() {
-        return $(MUSIC_TAB)
+    public void checkMusicTab() {
+        SelenideElement musicTab = $(MUSIC_TAB)
                 .shouldBe(Condition.visible.because("Не найдена кнопка музыки"));
+        musicTab.should(Condition.exist);
     }
 }

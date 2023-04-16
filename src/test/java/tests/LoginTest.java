@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,6 @@ import pages.BasePage;
 import pages.LoginPage;
 import pages.MainPage;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LoginTest {
@@ -37,10 +36,7 @@ public class LoginTest {
     public void correctLogin() {
         open(BasePage.OK_URL);
         LoginPage loginPage = new LoginPage();
-        loginPage
-                .login()
-                .getNameSign()
-                .should(exist);
+        loginPage.checkCorrectLogin();
     }
 
     @Test
@@ -49,9 +45,9 @@ public class LoginTest {
     public void incorrectLogin() {
         open(BasePage.OK_URL);
         LoginPage loginPage = new LoginPage();
-        loginPage
+        String actualErrorSign = loginPage
                 .login(INCORRECT_LOGIN, INCORRECT_PASS)
-                .getFailedLoginSign()
-                .shouldHave(text(MainPage.ERROR_SIGN));
+                .getFailedLoginSign();
+        Assertions.assertEquals(actualErrorSign, MainPage.ERROR_SIGN);
     }
 }

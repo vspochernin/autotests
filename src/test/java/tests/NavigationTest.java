@@ -3,8 +3,6 @@ package tests;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -76,7 +74,6 @@ public class NavigationTest {
 
         NavigationPage navigationPage = new NavigationPage();
         navigationPage.openMusicTab();
-        SelenideElement musicTab = navigationPage.getMusicTab();
-        musicTab.should(Condition.exist);
+        navigationPage.checkMusicTab();
     }
 }

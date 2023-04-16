@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 import com.codeborne.selenide.Condition;
 
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -22,6 +23,13 @@ public class LoginPage {
                 .setValue(password)
                 .pressEnter();
         return new MainPage();
+    }
+
+    public void checkCorrectLogin() {
+        this
+                .login()
+                .getNameSign()
+                .should(exist);
     }
 
     public MainPage login() {
