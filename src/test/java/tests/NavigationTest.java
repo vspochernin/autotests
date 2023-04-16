@@ -14,8 +14,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
+import pages.BasePage;
 import pages.LoginPage;
-import pages.MainPage;
 import pages.NavigationPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -39,7 +39,7 @@ public class NavigationTest {
     @Test
     @DisplayName("Тест навигации по боковому меню.")
     public void sideMenuNavigation() {
-        open(MainPage.URL);
+        open(BasePage.OK_URL);
         LoginPage loginPage = new LoginPage();
         loginPage.login();
 
@@ -70,7 +70,7 @@ public class NavigationTest {
     @Test
     @DisplayName("Тест открытия окна с музыкой")
     public void openMusicTab() {
-        open(MainPage.URL);
+        open(BasePage.OK_URL);
         LoginPage loginPage = new LoginPage();
         loginPage.login();
 

@@ -12,8 +12,8 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 
+import pages.BasePage;
 import pages.LoginPage;
-import pages.MainPage;
 import pages.SearchGroupsPage;
 import utils.SearchGroupsDataProvider;
 
@@ -35,7 +35,7 @@ public class SearchTest {
     @MethodSource("searchKeywordsProvider")
     @DisplayName("Тест поиска групп.")
     public void testGroupSearch(String keyword) {
-        open(MainPage.URL);
+        open(BasePage.OK_URL);
 
         LoginPage loginPage = new LoginPage();
         loginPage.login();

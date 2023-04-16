@@ -15,8 +15,6 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class PostPage {
 
-    public static final String URL = "https://ok.ru/post";
-
     private final By POST_TEXTAREA = By.xpath("//div[@data-module=\"postingForm/mediaText\"]");
     private final By POST_BUTTON = By.xpath("//div[@data-l=\"t,button.submit\"]");
     private final String PROFILE_URL = "https://ok.ru/profile/573415014134";

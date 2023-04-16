@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Timeout;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 
+import pages.BasePage;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -34,7 +35,7 @@ public class LoginTest {
     @DisplayName("Тестирование успешной аутентификации.")
     @Timeout(5000)
     public void correctLogin() {
-        open(LoginPage.URL);
+        open(BasePage.OK_URL);
         LoginPage loginPage = new LoginPage();
         loginPage
                 .login()
@@ -46,7 +47,7 @@ public class LoginTest {
     @DisplayName("Тестирование некорректной аутентификации.")
     @Timeout(5000)
     public void incorrectLogin() {
-        open(LoginPage.URL);
+        open(BasePage.OK_URL);
         LoginPage loginPage = new LoginPage();
         loginPage
                 .login(INCORRECT_LOGIN, INCORRECT_PASS)

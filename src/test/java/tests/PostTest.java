@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 
+import pages.BasePage;
 import pages.LoginPage;
 import pages.PostPage;
 import utils.PostData;
@@ -32,13 +33,13 @@ public class PostTest {
     @Test
     @DisplayName("Тест публикации поста.")
     public void postTest() {
-        open(LoginPage.URL);
+        open(BasePage.OK_URL);
 
         LoginPage loginPage = new LoginPage();
         loginPage.login();
 
         sleep(1000);
-        open(PostPage.URL);
+        open(BasePage.POST_URL);
 
         PostPage postPage = new PostPage();
 
