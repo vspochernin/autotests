@@ -14,7 +14,7 @@ import com.codeborne.selenide.WebDriverRunner;
 
 import pages.BasePage;
 import pages.LoginPage;
-import pages.NavigationPage;
+import pages.LeftMenuPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -41,19 +41,19 @@ public class NavigationTest {
         LoginPage loginPage = new LoginPage();
         loginPage.login();
 
-        NavigationPage navigationPage = new NavigationPage();
+        LeftMenuPage leftMenuPage = new LeftMenuPage();
 
         List<String> urls = new LinkedList<>();
 
-        navigationPage.getPhotosTab().click();
+        leftMenuPage.getPhotosTab().click();
         sleep(1000);
         urls.add(WebDriverRunner.getWebDriver().getCurrentUrl());
 
-        navigationPage.getFriendsTab().click();
+        leftMenuPage.getFriendsTab().click();
         sleep(1000);
         urls.add(WebDriverRunner.getWebDriver().getCurrentUrl());
 
-        navigationPage.getGroupsTab().click();
+        leftMenuPage.getGroupsTab().click();
         sleep(1000);
         urls.add(WebDriverRunner.getWebDriver().getCurrentUrl());
 
@@ -72,8 +72,8 @@ public class NavigationTest {
         LoginPage loginPage = new LoginPage();
         loginPage.login();
 
-        NavigationPage navigationPage = new NavigationPage();
-        navigationPage.openMusicTab();
-        navigationPage.checkMusicTab();
+        LeftMenuPage leftMenuPage = new LeftMenuPage();
+        leftMenuPage.openMusicTab();
+        leftMenuPage.checkMusicTab();
     }
 }

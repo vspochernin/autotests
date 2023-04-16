@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class NavigationPage {
+public class LeftMenuPage {
 
     private static final By PHOTOS_TAB = By.xpath("//a[contains(@href, '/photos')]");
     private static final By FRIENDS_TAB = By.xpath("//a[contains(@href, '/friends')]");
