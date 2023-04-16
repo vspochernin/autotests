@@ -22,9 +22,9 @@ public class PostPage {
     private final By POST = By.xpath("//div[@class=\"media-text_cnt_tx emoji-tx textWrap\"]");
 
     public void createPost(PostData postData) {
-        SelenideElement postTextarea = $(POST_TEXTAREA)
-                .shouldBe(Condition.visible.because("Не найдено поле ввода поста"));
-        postTextarea.setValue(postData.getText());
+        $(POST_TEXTAREA)
+                .shouldBe(Condition.visible.because("Не найдено поле ввода поста"))
+                .setValue(postData.getText());
         $(POST_BUTTON)
                 .shouldBe(Condition.visible.because("Не найдена кнопка создания поста"))
                 .click();
