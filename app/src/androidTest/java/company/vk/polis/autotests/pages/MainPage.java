@@ -4,9 +4,11 @@ import androidx.test.espresso.ViewInteraction;
 
 import company.vk.polis.autotests.R;
 
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
+import static androidx.test.espresso.matcher.ViewMatchers.isNotEnabled;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 public class MainPage extends BasePage {
@@ -28,6 +30,16 @@ public class MainPage extends BasePage {
 
     public MainPage checkTextViewText(String expectedText) {
         textView.check(matches(withText(expectedText)));
+        return this;
+    }
+
+    public MainPage checkButtonEnabled() {
+        button.check(matches(isEnabled()));
+        return this;
+    }
+
+    public MainPage checkButtonDisabled() {
+        button.check(matches(isNotEnabled()));
         return this;
     }
 }

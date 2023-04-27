@@ -27,4 +27,15 @@ public class MainActivityTest {
                 .clickButton()
                 .checkTextViewText(inputText);
     }
+
+    @Test
+    public void testButtonEnabledDisabled() {
+        mainPage
+                .checkButtonDisabled()
+                .enterText("Test Text")
+                .checkButtonEnabled()
+                .enterText("")
+                .checkButtonDisabled();
+    }
+
 }
