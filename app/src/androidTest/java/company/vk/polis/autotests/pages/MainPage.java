@@ -11,6 +11,7 @@ public class MainPage extends BasePage {
 
     private final ViewInteraction editText = onView(withId(R.id.editText));
     private final ViewInteraction button = onView(withId(R.id.button));
+    private final ViewInteraction textView = onView(withId(R.id.textView));
 
     public MainPage enterText(String text) {
         typeTheText(editText, text);
@@ -21,8 +22,6 @@ public class MainPage extends BasePage {
         clickView(button);
         return this;
     }
-
-    private final ViewInteraction textView = onView(withId(R.id.textView));
 
     public MainPage checkTextViewText(String expectedText) {
         checkTextMatches(textView, expectedText);
@@ -37,5 +36,12 @@ public class MainPage extends BasePage {
     public MainPage checkButtonDisabled() {
         checkDisabled(button);
         return this;
+    }
+
+    @Override
+    public void load() {
+        assertLoaded(editText);
+        assertLoaded(button);
+        assertLoaded(textView);
     }
 }

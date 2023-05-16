@@ -1,8 +1,7 @@
 package company.vk.polis.autotests.pages;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.test.espresso.ViewInteraction;
-import androidx.test.core.app.ActivityScenario;
+import androidx.test.espresso.NoMatchingViewException;
 
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
@@ -31,5 +30,15 @@ public abstract class BasePage {
 
     protected void checkDisabled(ViewInteraction view) {
         view.check(matches(isNotEnabled()));
+    }
+
+    public abstract void load();
+
+    protected void assertLoaded(ViewInteraction view) {
+        try {
+            view.check(matches(isEnabled()));
+        } catch (NoMatchingViewException e) {
+            throw new AssertionError("Page not loaded: " + this.getClass().getName(), e);
+        }
     }
 }

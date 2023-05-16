@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c6717e5-c5db-4d04-aa2f-4892e319987a" name="Changes" comment="add first test">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="1c6717e5-c5db-4d04-aa2f-4892e319987a" name="Changes" comment="add abstract BaseTest class and put launch activity to it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/company/vk/polis/autotests/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/company/vk/polis/autotests/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/company/vk/polis/autotests/pages/MainActivityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/company/vk/polis/autotests/MainActivityTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/company/vk/polis/autotests/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/company/vk/polis/autotests/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +51,7 @@
       <recent name="company.vk.polis.autotests" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Android Instrumented Tests.MainActivityTest">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="autotests.app.main" />
       <option name="DEPLOY" value="true" />
@@ -250,7 +247,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682607191096</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="extract constant">
+      <created>1684233458695</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684233458695</updated>
+    </task>
+    <task id="LOCAL-00004" summary="make check wrappers">
+      <created>1684234379483</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684234379483</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add abstract BaseTest class and put launch activity to it">
+      <created>1684234726732</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684234726732</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +288,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit for android app" />
     <MESSAGE value="add first test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add first test" />
+    <MESSAGE value="extract constant" />
+    <MESSAGE value="make check wrappers" />
+    <MESSAGE value="add abstract BaseTest class and put launch activity to it" />
+    <option name="LAST_COMMIT_MESSAGE" value="add abstract BaseTest class and put launch activity to it" />
   </component>
 </project>
