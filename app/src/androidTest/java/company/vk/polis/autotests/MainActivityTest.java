@@ -11,16 +11,9 @@ import company.vk.polis.autotests.pages.MainPage;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class MainActivityTest {
+public class MainActivityTest extends BaseTest {
 
     public static final String TEST_TEXT = "Test text";
-    private MainPage mainPage;
-
-    @Before
-    public void setUp() {
-        mainPage = new MainPage();
-        mainPage.launchActivity(MainActivity.class);
-    }
 
     @Test
     public void testEditTextAndButtonInteractionUsingPageObject() {

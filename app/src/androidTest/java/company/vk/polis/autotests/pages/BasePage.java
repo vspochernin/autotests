@@ -32,8 +32,4 @@ public abstract class BasePage {
     protected void checkDisabled(ViewInteraction view) {
         view.check(matches(isNotEnabled()));
     }
-
-    public <A extends AppCompatActivity> void launchActivity(Class<A> activityClass) {
-        ActivityScenario.launch(activityClass);
-    }
 }
