@@ -3,11 +3,8 @@ package company.vk.polis.autotests;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import company.vk.polis.autotests.pages.MainPage;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
