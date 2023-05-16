@@ -17,7 +17,7 @@ public abstract class BasePage {
         view.perform(click());
     }
 
-    protected <A extends AppCompatActivity> void launchActivity(Class<A> activityClass) {
+    public <A extends AppCompatActivity> void launchActivity(Class<A> activityClass) {
         ActivityScenario.launch(activityClass);
     }
 }
